@@ -17,7 +17,6 @@ A simple, real-time chat application built using Flask and Flask-SocketIO for in
   ![Chatting with people](images/chat.png)
 
 </details>
----
 
 ## FEATURES
 
