@@ -2,6 +2,21 @@
 
 A simple, real-time chat application built using Flask and Flask-SocketIO for instant, bidirectional communication via WebSockets.
 
+## Demo Screens
+
+<details>
+  <summary>Show/Hide Demo</summary>
+
+  ### Application Start
+  ![Home Page ](images/app_start.png)
+
+  ### Registration / Setup Screen
+  ![Registration Screen](images/registration.png)
+
+  ### Chatting
+  ![Chatting with people](images/chat.png)
+
+</details>
 ---
 
 ## FEATURES
