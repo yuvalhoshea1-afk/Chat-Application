@@ -1,0 +1,17 @@
+bidict
+click
+dnspython
+eventlet
+Flask
+Flask-SocketIO
+Flask-SQLAlchemy
+greenlet
+gunicorn
+itsdangerous
+Jinja2
+MarkupSafe
+python-engineio
+python-socketio
+six
+SQLAlchemy
+Werkzeug

@@ -1,0 +1,116 @@
+/* --- Chat Styles --- */
+:root {
+    --primary-color: #007bff; /* Blue */
+    --secondary-color: #6c757d; /* Gray */
+    --accent-color: #28a745; /* Green */
+    --text-color: #212529;
+}
+
+/* Scrollable message area */
+#chat-messages-container {
+    height: 500px; /* Fixed height for the chat area, can be changed */
+    overflow-y: auto; /* Enables scrolling */
+    padding: 15px 20px;
+    background-color: #f5f7fb; /* Light background for message area */
+}
+
+#chatTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* General message row properties (TR) */
+#chatTable tr {
+    /* Hiding table borders */
+    border: none;
+    padding: 0;
+    margin: 5px 0;
+}
+
+/* --- Message Bubbles --- */
+
+/* The bubble itself */
+.userMsg, .otherMsg {
+    /* Makes the TD an inline-block to act as a bubble */
+    display: inline-block; 
+    max-width: 75%;
+    padding: 8px 12px;
+    margin: 5px 0;
+    font-size: 1em;
+    word-wrap: break-word;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* User's messages (Right side for LTR) */
+.userMsg{
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 15px 15px 15px 0; /* Nice rounded corners, straight bottom-left corner */
+    float: right; /* Aligned to the right (for LTR) */
+    clear: both; /* Forces each message to start on a new line */
+}
+
+/* Other messages (Left side for LTR) */
+.otherMsg{
+    background-color: #e9ecef; /* Light gray */
+    color: var(--text-color);
+    border-radius: 15px 15px 0 15px; /* Nice rounded corners, straight bottom-right corner */
+    float: left; /* Aligned to the left (for LTR) */
+    clear: both; /* Forces each message to start on a new line */
+}
+
+/* Message information (username and datetime) */
+.msgInfo{
+    display: block;
+    font-size: 0.75em;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+.userMsg .msgInfo {
+    color: #fff; /* White on blue bubble */
+    text-align: right;
+}
+
+.otherMsg .msgInfo {
+    color: var(--secondary-color); /* Darker gray on light bubble */
+    text-align: left;
+}
+
+/* --- Input Area at the bottom of the chat --- */
+.chat-input-area {
+    padding: 15px;
+    border-top: 1px solid #dee2e6;
+    background-color: var(--card-background);
+}
+
+.chat-input-area form {
+    display: flex;
+    width: 100%;
+    text-align: initial;
+}
+
+/* Message input field */
+.chat-input-area input[type="text"] {
+    flex-grow: 1; 
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 20px; 
+    margin-right: 10px; /* Space before the send button */
+    font-size: 1em;
+    text-align: left; /* LTR alignment */
+}
+
+/* Send button */
+.chat-input-area input[type="submit"] {
+    /* The btn-primary style handles most of the design */
+    background-color: var(--accent-color) !important; /* Prominent green color for sending */
+    min-width: 80px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.chat-input-area input[type="submit"]:hover {
+    background-color: #1e7e34 !important;
+}

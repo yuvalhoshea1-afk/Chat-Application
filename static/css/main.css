@@ -1,0 +1,155 @@
+/* --- Global Reset and Font --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS Variables - Define site colors */
+:root {
+    --primary-color: #007bff; /* Blue - Primary */
+    --secondary-color: #6c757d; /* Gray - Secondary */
+    --accent-color: #28a745; /* Green - Accent (for send button) */
+    --background-light: #f8f9fa; /* General light background */
+    --card-background: #ffffff; /* Card/Container background */
+    --text-color: #212529; /* Primary text color */
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Heebo', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Header and Layout --- */
+.header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: flex-start; /* Left alignment for LTR */
+    align-items: center;
+}
+
+.site-title {
+    color: white;
+    text-decoration: none;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.content-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    padding: 40px 20px;
+}
+
+/* --- Buttons (.btn) --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    min-width: 120px;
+    border: none;
+    border-radius: 25px; /* More rounded buttons */
+    font-size: 1em;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; 
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+/* --- Card and Forms --- */
+.card {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 400px;
+    text-align: left; /* Left align text inside the card for LTR */
+}
+
+.card h1 {
+    margin-bottom: 25px;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Input group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group p {
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 0.9em;
+    color: var(--secondary-color);
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    text-align: left; /* Left align input */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Error and Success messages */
+.error-message {
+    color: #dc3545; /* Red */
+    font-weight: 700;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.success-message {
+    color: var(--accent-color); /* Green */
+    font-weight: 700;
+    margin-top: 15px;
+    text-align: center;
+}

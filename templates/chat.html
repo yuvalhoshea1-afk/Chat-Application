@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block head %}
+<script type="text/javascript" language="javascript" src="../static/js/url.js"></script> 
+<script src="../static/js/socket.io.js"></script>
+<script src="../static/js/chat.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+
+{% endblock %}
+
+{% block body %}
+    <div class="card" style="max-width: 800px; padding: 0;">
+        <h1 style="text-align: center; padding: 20px; margin-bottom: 0; border-bottom: 1px solid #eee;">CHAT for user: {{user}}</h1>
+        
+        <div id="chat-messages-container">
+            <table id="chatTable" style="width: 100%;">
+                </table>
+        </div>
+
+        <div class="chat-input-area">
+            <form onsubmit="onSubmit(); return false;">
+                <input id="userInput" name="userInput" type="text" placeholder="Enter message..." required>
+                <input type="submit" value="Send" class="btn btn-primary" style="margin: 0; min-width: 80px; border-radius: 20px;">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // already declared in chat.js
+        activeUser = '{{user}}';
+    </script>
+    
+    <script>
+        // Loop to display existing messages
+        {% for message in messages %}
+            // declared at chat.js
+            username = '{{message["username"]}}';
+            message = '{{message["message"]}}';
+            datetime = '{{message["datetime"]}}';
+            // The addMessage function in chat.js should remain to display the messages in the table
+            addMessage({"username": username, "message": message, 
+                        "datetime": datetime});
+        {% endfor %}
+        
+        // Remove the original input row from the file
+        document.getElementById("text").remove(); 
+    </script>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script src="../static/js/registerFrom.js"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <h1>Register</h1>
+
+        <form action="{{url_for('register')}}" id="registerForm" method="POST" onsubmit="return validForm();">
+            <div class="form-group">
+                <p>Enter username:</p>
+                <input type="text" id="username" name="username" placeholder="Enter username" required>
+            </div>
+            <div class="form-group">
+                <p>Enter your password:</p>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
+            </div>
+            <div class="form-group">
+                <p>Re-enter your password:</p>
+                <input type="password" id="re-password" name="re-password" placeholder="Re-enter password" required>
+            </div>
+
+            <div class="form-group" style="text-align: left; font-size: 0.9em; color: var(--secondary-color);">
+                <p style="font-weight: 400; margin-bottom: 0;">Username length is minimum 3 characters up to 20. </p>
+                <p style="font-weight: 400; margin-bottom: 0;">Password must contain at least one big letter, small letter and digit and 8 to 20 chars.</p>
+            </div>
+            
+            <div id="valid" class="error-message"></div>
+
+            {% if user_exists %}
+            <p class="error-message"><b>Please choose another username. User "{{username}}" already exists.</b></p>
+            {% set submit = '' %}
+            {% endif %}
+
+            {% if registered %}
+            <p class="success-message"><b>Registration completed successfully!</b></p>
+            <p id="url" hidden>{{url_for('login')}}</p>
+            <button class="btn btn-primary" onclick="return toLogin();" style="width: 100%;">Login</button>
+            {% set submit = '' %}
+            {% endif %}
+            
+            {% if not submit %}
+            <input type="submit" value="Register" class="btn btn-primary" style="width: 100%; margin-top: 15px;">
+            {% endif %}
+        </form>
+        
+        <form action="{{url_for('main')}}" style="margin-top: 15px;">
+            <input type="submit" value="Return To Main Page." class="btn btn-secondary" style="width: 100%;">
+        </form>
+    </div>
+{% endblock %}
